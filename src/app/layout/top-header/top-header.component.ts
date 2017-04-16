@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   moduleId: 'AppTopHeade',
@@ -19,10 +19,12 @@ export class TopHeaderComponent implements OnInit {
    private bindHover() {
     const $BODY = $('body');
     $(this.siteMenuEl.nativeElement).on('mouseenter', () => {
-      console.log('ok');
+      /* tslint:disable:max-line-length */
       if ($BODY.hasClass('site-menubar-fixed') || $BODY.hasClass('site-menubar-disable-hover') || $BODY.hasClass('site-menubar-changing')) {
+      /* tslint:enable:max-line-length */
         return;
       }
+
     }).on('mouseleave', () => {
       if ($BODY.hasClass('site-menubar-fixed') || $BODY.hasClass('site-menubar-disable-hover')) {
         return;

@@ -23,6 +23,10 @@ export class NavbarComponent implements OnInit {
     this.initMenuBar();
   }
 
+  public getState() {
+    return this.menuBarType;
+  }
+
   private initNavBar() {
       $(this.appNavBarEl.nativeElement).on('click', '.dropdown-menu', (event) => {
           event.stopPropagation();
@@ -44,10 +48,6 @@ export class NavbarComponent implements OnInit {
           })();
         }
       });
-  }
-
-  public getState(){
-    return this.menuBarType;
   }
 
   private initMenuBar() {
@@ -92,6 +92,5 @@ export class NavbarComponent implements OnInit {
         callback.call(this);
       }, 250);
   }
-  
 
 }

@@ -16,7 +16,4 @@ export class SiteMenuBarComponent implements OnInit {
   public ngOnInit() {
     // do nothing
   }
-
- 
-  
 }
