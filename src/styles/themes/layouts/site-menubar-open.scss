@@ -3,6 +3,7 @@
 .site-menubar-open {
   .site-menubar {
     opacity: 1;
+    z-index : $zindex-menubar-open;
     width: $site-menubar-width-open;
     -ms-transform: translate(0, 0);
     transform: translate3d(0, 0, 0);

@@ -822,7 +822,8 @@ $zindex-navbar-sticky:    $zindex-navbar-fixed;// v4a6-remove or rename
 $zindex-fixed:            1500; // v4a6-add
 $zindex-sticky:           $zindex-fixed; // v4a6-add
 
-$zindex-menubar:          1400;// v4a6-remove
+$zindex-menubar:          -1;// v4a6-remove
+$zindex-menubar-open:     1400;// v4a6-remove
 $zindex-overlay:          1300;// v4a6-remove
 
 $zindex-dropdown:         1200;
