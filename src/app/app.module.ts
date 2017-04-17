@@ -32,16 +32,17 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
+import { SiteMenuBarService, MENU_ITEM } from './service/site-menubar/site-menubar.service';
+import { HomeModule } from './home';
+import { AboutModule } from './about';
 //
 import '../styles/styles.scss';
 //
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  SiteMenuBarService
 ];
 
 type StoreType = {
@@ -56,16 +57,15 @@ type StoreType = {
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
-    AppComponent,
-    AboutComponent,
-    HomeComponent,
-    NoContentComponent
+    AppComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    AboutModule,
+    HomeModule,
     DateInputsModule,
     TopHeaderModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
