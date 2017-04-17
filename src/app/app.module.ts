@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import 'jquery';
 import 'bootstrap';
+import 'jquery-asScrollbar';
+import 'jquery-asScrollable';
 
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { TopHeaderModule } from './layout/top-header';

@@ -1,7 +1,7 @@
 import { Plugin } from './plugin';
 
 export class Menu extends Plugin {
-
+    public scrollable: any;
     constructor(
         $el: any,
         options: any = {}
@@ -15,6 +15,9 @@ export class Menu extends Plugin {
         this._$el.on('open.site.menu', '.site-menu-item', (e) => {
             let $item = $(e.currentTarget);
             this.expand($item, () => {
+                if (this.scrollable) {
+                    this.scrollable.update();
+                }
                 $item.addClass('open');
             });
             if (this._options.accordion) {
@@ -25,6 +28,9 @@ export class Menu extends Plugin {
             let $item = $(e.currentTarget);
 
             this.collapse($item, () => {
+                if (this.scrollable) {
+                    this.scrollable.update();
+                }
                 $item.removeClass('open');
             });
 
@@ -52,6 +58,14 @@ export class Menu extends Plugin {
 
     protected render() {
         this.bindEvents();
+        this.scrollable = this._$el.children('.site-menubar-body').asScrollable({
+            namespace: 'scrollable',
+            skin: 'scrollable-inverse',
+            direction: 'vertical',
+            contentSelector: '>',
+            containerSelector: '>'
+        }).data('asScrollable');
+
         this._$el.data('menuApi', this);
     }
 

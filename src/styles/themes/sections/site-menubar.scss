@@ -29,7 +29,7 @@ body {
   box-shadow: $site-menubar-box-shadow;
 
   &-header {
-    height: 140px;
+    height: $site-menubar-header-height;
     @include text-truncate();
 
     .cover {

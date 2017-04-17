@@ -10,7 +10,6 @@ export class NavbarComponent implements OnInit {
   public brandMenu: any;
   @ViewChild('appnavbar') public appNavBarEl: ElementRef;
   private menuBarType = 'hide';
-
   private isCollapsed = true;
 
   constructor() {
