@@ -8,7 +8,7 @@ import 'jquery-asScrollbar';
 import 'jquery-asScrollable';
 
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
-import { TopHeaderModule } from './layout/top-header';
+
 import {
   NgModule,
   ApplicationRef
@@ -26,13 +26,14 @@ import {
 /*
  * Platform and Environment providers/directives/pipes
  */
+import { AppCoreModule } from './core';
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { SiteMenuBarService, MENU_ITEM } from './service/site-menubar/site-menubar.service';
+import { MenuBarService, MENU_ITEM } from './core/services/menubar.service';
 import { HomeModule } from './home';
 import { AboutModule } from './about';
 //
@@ -42,7 +43,7 @@ import '../styles/styles.scss';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  SiteMenuBarService
+  MenuBarService
 ];
 
 type StoreType = {
@@ -60,6 +61,7 @@ type StoreType = {
     AppComponent
   ],
   imports: [ // import Angular's modules
+    AppCoreModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -67,7 +69,6 @@ type StoreType = {
     AboutModule,
     HomeModule,
     DateInputsModule,
-    TopHeaderModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { routes } from './about.routes';
 import { AboutComponent } from './about.component';
-import { SiteMenuBarService } from '../service/site-menubar/site-menubar.service';
+import { MenuBarService } from '../core/services/menubar.service';
 
 @NgModule({
    imports: [
@@ -16,7 +16,7 @@ import { SiteMenuBarService } from '../service/site-menubar/site-menubar.service
 })
 export class AboutModule {
   constructor(
-    private siteMenu: SiteMenuBarService
+    private siteMenu: MenuBarService
   ) {
     siteMenu.saveItems('about', {
        title : 'About',

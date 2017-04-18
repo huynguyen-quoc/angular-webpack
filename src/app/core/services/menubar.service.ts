@@ -5,7 +5,7 @@ export type MENU_ITEM = {
 };
 
 @Injectable()
-export class SiteMenuBarService {
+export class MenuBarService {
 
   private _menuItems: MENU_ITEM[] = [];
 

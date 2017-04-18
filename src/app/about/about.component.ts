@@ -3,7 +3,6 @@ import {
   OnInit
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SiteMenuBarService } from '../service/site-menubar/site-menubar.service';
 
 @Component({
   selector: 'about',
@@ -28,15 +27,7 @@ export class AboutComponent implements OnInit {
   public localState: any;
   constructor(
     public route: ActivatedRoute,
-    private siteMenu: SiteMenuBarService
   ) {
-    console.log('test');
-    siteMenu.saveItems('about', {
-       title : 'About',
-       group : true,
-       icon  : 'md-settings',
-       weight: 2
-    });
   }
 
   public ngOnInit() {

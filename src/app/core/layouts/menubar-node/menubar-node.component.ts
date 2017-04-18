@@ -1,19 +1,19 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 /* tslint:disable:max-line-length */
-import { SiteMenuBarService, MENU_ITEM } from '../../../../service/site-menubar/site-menubar.service';
+import { MenuBarService, MENU_ITEM } from '../../services/menubar.service';
 /* tslint:enable:max-line-length */
 @Component({
-  selector: '[site-menubar-node]',
+  selector: '[menubar-node]',
   providers : [],
-  templateUrl : './site-menubar-node.component.html'
+  templateUrl : './menubar-node.component.html'
 })
 
-export class SiteMenuBarNodeComponent implements OnInit {
+export class MenuBarNodeComponent implements OnInit {
   @ViewChild('AppSiteMenu') public AppSiteMenuEl: ElementRef;
   public menuItems: MENU_ITEM[];
 
   constructor(
-    private siteMenuBarService: SiteMenuBarService
+    private siteMenuBarService: MenuBarService
   ) {
       siteMenuBarService.sort();
       this.menuItems = siteMenuBarService.menuItems;
