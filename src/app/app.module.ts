@@ -68,8 +68,8 @@ type StoreType = {
     FormsModule,
     HttpModule,
     AboutModule,
-    HomeModule,
     NoContentModule,
+    HomeModule,
     DateInputsModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],

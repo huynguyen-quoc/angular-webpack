@@ -1,5 +1,5 @@
 <li class="site-menu-item" *ngFor="let node of items" [ngClass]="{'has-sub': node.children.length > 0 }">
-    <a class="animsition-link"  [routerLink]="[node._path]">
+    <a class=""  [routerLink]="[node._path]">
         <i class="site-menu-icon {{node.icon}}" aria-hidden="true"></i>
         <span class="site-menu-title">{{ node.title }}</span>
         <span class="site-menu-arrow" *ngIf="node.children.length > 0"></span>
