@@ -20,7 +20,6 @@ export class HomeModule {
   ) {
     siteMenu.saveItems('dashboard', {
        title : 'Dashboard',
-       group : true,
        icon  : 'md-view-dashboard',
        weight: 1
     });

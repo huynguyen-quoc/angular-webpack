@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { routes } from './about.routes';
-import { AboutComponent } from './about.component';
+import { routes } from './no-content.routes';
+import { NoContentComponent } from './no-content.component';
 import { MenuBarService } from '../core/services/menubar.service';
 
 @NgModule({
@@ -11,17 +11,17 @@ import { MenuBarService } from '../core/services/menubar.service';
     CommonModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [ AboutComponent ],
-  exports: [ AboutComponent ]
+  declarations: [ NoContentComponent ],
+  exports: [ NoContentComponent ]
 })
-export class AboutModule {
+export class NoContentModule {
   constructor(
     private siteMenu: MenuBarService
   ) {
-    siteMenu.saveItems('about', {
-       title : 'About',
-       icon  : 'md-settings',
-       weight: 2
+    siteMenu.saveItems('no-content', {
+       title : 'No Content',
+       icon  : 'md-view-dashboard',
+       weight: 3
     });
   }
 }

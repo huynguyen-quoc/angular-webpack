@@ -44,19 +44,37 @@ export class MenuBarService {
      }
 
      let parts = path.split('.');
-
+     if (parts.length > 1) {
+          delete value.icon;
+     }
      // Generate the object id from the parts
      let id = parts[parts.length - 1];
 
      // Get the parent item from the parts
      let parent = this.findOrCreateParent(parts);
-
+     if (parts.length === 1) {
+        for (let i = 0 ; i < parent.length; i++) {
+            let child = parent[i];
+            if (child._id === id ) {
+                let items = {
+                    _id : child._id,
+                    _path : child._path,
+                    title   : value.title,
+                    weight  : value.weight || child.weight,
+                    icon  : value.icon || child.weight,
+                    children: child.children
+                };
+                child = items;
+                parent[i] = child;
+                break;
+            }
+        }
+     }
      // Decide if we are going to update or create
      let updateItem = null;
-
-     for (const child of parent) {
+     for (let child of parent) {
         if (child._id === id ) {
-            updateItem = value;
+            updateItem = child;
             break;
         }
      }
@@ -75,7 +93,7 @@ export class MenuBarService {
         value._id = id;
 
         // Add the item path
-        value._path = path;
+        value._path = path.split('.').join('/');
 
         // Push the item into the array
         parent.push(value);
@@ -115,7 +133,7 @@ export class MenuBarService {
             if ( createParent ) {
                 let item = {
                     _id,
-                    _path   : parts.join('.'),
+                    _path   : parts.join('/'),
                     title   : _id,
                     weight  : 1,
                     children: []
@@ -132,4 +150,5 @@ export class MenuBarService {
   private  _byWeight(x, y) {
     return parseInt(x.weight, 0) - parseInt(y.weight, 0);
   }
+
 }

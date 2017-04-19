@@ -36,6 +36,7 @@ import { AppState, InternalStateType } from './app.service';
 import { MenuBarService, MENU_ITEM } from './core/services/menubar.service';
 import { HomeModule } from './home';
 import { AboutModule } from './about';
+import { NoContentModule } from './no-content';
 //
 import '../styles/styles.scss';
 //
@@ -68,6 +69,7 @@ type StoreType = {
     HttpModule,
     AboutModule,
     HomeModule,
+    NoContentModule,
     DateInputsModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
